@@ -125,8 +125,8 @@ nav a:hover {
     height: 100vh; /* Ocupa toda la pantalla */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0 100px;
+    justify-content: flex-end;
+    padding: 0 60px;
 
     background: linear-gradient(135deg, #000, #111);
 }
