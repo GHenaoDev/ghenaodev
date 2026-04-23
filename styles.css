@@ -126,7 +126,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 10 60px 100px 60px;
+    padding: 0 60px 90px 60px;
 
     background: linear-gradient(135deg, #000, #111);
 }
