@@ -1,18 +1,80 @@
-/* RESET */
+/* =========================================================
+   RESET GLOBAL
+   ---------------------------------------------------------
+   Elimina estilos por defecto del navegador para evitar
+   inconsistencias entre Chrome, Firefox, etc.
+========================================================= */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Hace que padding y border no rompan el layout */
 }
 
-/* BODY */
+
+/* =========================================================
+   VARIABLES (DISEÑO GLOBAL)
+   ---------------------------------------------------------
+   Aquí defines tu identidad visual (colores del proyecto).
+   Luego puedes reutilizarlos en todo el CSS.
+========================================================= */
+:root {
+    --bg: #000000;          /* Fondo principal */
+    --text: #ffffff;        /* Texto principal */
+    --muted: #b3b3b3;       /* Texto secundario (gris suave) */
+    --accent: #00c6b2;      /* Verde-azulado principal */
+    --accent-soft: #00e0c6; /* Versión más clara para hover */
+}
+
+
+/* =========================================================
+   BODY (CONFIGURACIÓN GLOBAL)
+   ---------------------------------------------------------
+   Define tipografía, fondo y color base del texto.
+========================================================= */
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: #0a0a0a;
-    color: #fff;
+    background: var(--bg);
+    color: var(--text);
 }
 
-/* NAVBAR */
+
+/* =========================================================
+   TIPOGRAFÍA
+   ---------------------------------------------------------
+   Controla jerarquía visual: títulos fuertes,
+   párrafos más suaves (como en tu diapositiva).
+========================================================= */
+h1 {
+    font-size: 3rem;
+    font-weight: 700; /* Muy fuerte */
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+p {
+    color: var(--muted); /* Gris suave para lectura */
+    line-height: 1.6;
+}
+
+/* Permite usar negrillas dentro de párrafos */
+strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   NAVBAR (MENÚ SUPERIOR)
+   ---------------------------------------------------------
+   Barra fija tipo web profesional con efecto glass.
+========================================================= */
 nav {
     position: fixed;
     width: 100%;
@@ -20,15 +82,18 @@ nav {
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.7); /* Transparente */
+    backdrop-filter: blur(10px);    /* Efecto vidrio */
+    z-index: 1000;                  /* Siempre encima */
 }
 
 nav h2 {
     font-weight: 600;
 }
 
+/* Lista horizontal */
 nav ul {
     display: flex;
     list-style: none;
@@ -38,79 +103,126 @@ nav ul li {
     margin-left: 30px;
 }
 
+/* Links del menú */
 nav a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text);
     transition: 0.3s;
 }
 
+/* Hover con color de marca */
 nav a:hover {
-    color: #00c6ff;
+    color: var(--accent);
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO (SECCIÓN PRINCIPAL)
+   ---------------------------------------------------------
+   Pantalla inicial tipo landing.
+========================================================= */
 .hero {
-    height: 100vh;
+    height: 100vh; /* Ocupa toda la pantalla */
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 60px;
+
     background: linear-gradient(135deg, #000, #111);
 }
 
 .hero h1 {
-    font-size: 3rem;
+    max-width: 600px;
 }
 
 .hero h2 {
     margin-top: 10px;
-    color: #00c6ff;
+    color: var(--accent); /* Color de marca */
 }
 
 .hero p {
     margin-top: 20px;
     max-width: 500px;
-    line-height: 1.6;
 }
 
-/* BOTÓN */
+
+/* =========================================================
+   BOTONES
+   ---------------------------------------------------------
+   Botón principal con color corporativo.
+========================================================= */
 .btn {
     margin-top: 30px;
     padding: 12px 25px;
-    background: #00c6ff;
+    background: var(--accent);
     color: black;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 6px;
     transition: 0.3s;
 }
 
+/* Hover más claro */
 .btn:hover {
-    background: #009ec3;
+    background: var(--accent-soft);
 }
 
-/* SECCIONES */
+
+/* =========================================================
+   SECCIONES GENERALES
+   ---------------------------------------------------------
+   Espaciado consistente entre bloques.
+========================================================= */
 section {
     padding: 120px 60px;
 }
 
-/* CARDS */
+
+/* =========================================================
+   CARDS (PROYECTOS / SERVICIOS)
+   ---------------------------------------------------------
+   Contenedores reutilizables tipo "tarjeta".
+========================================================= */
 .card {
-    background: #111;
+    background: #0d0d0d;
     padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #1a1a1a;
+
     transition: 0.3s;
-    border: 1px solid #222;
 }
 
+/* Efecto hover elegante */
 .card:hover {
+    border-color: var(--accent);
     transform: translateY(-5px);
-    border-color: #00c6ff;
 }
 
-/* GRID PROYECTOS */
+
+/* =========================================================
+   GRID DE PROYECTOS
+   ---------------------------------------------------------
+   Layout responsive automático.
+========================================================= */
 .projects {
     display: grid;
+
+    /* Se adapta automáticamente a pantalla */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
     gap: 20px;
+}
+
+
+/* =========================================================
+   LINKS GENERALES
+   ---------------------------------------------------------
+   Para cualquier enlace fuera del navbar.
+========================================================= */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-soft);
 }
