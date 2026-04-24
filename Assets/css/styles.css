@@ -227,3 +227,14 @@ a {
 a:hover {
     color: var(--accent-soft);
 }
+
+/* ===============================
+   IMÁGENES DE PROYECTOS
+================================= */
+.card img {
+    width: 100%;           /* ocupa todo el ancho */
+    height: 200px;         /* altura fija elegante */
+    object-fit: cover;     /* recorta sin deformar */
+    border-radius: 8px;    /* bordes suaves */
+    margin: 15px 0;        /* espacio arriba y abajo */
+}
