@@ -16,6 +16,8 @@
     --muted: #b3b3b3;
     --accent: #00c6b2;
     --accent-soft: #00e0c6;
+    --card-bg: #0d0d0d;
+    --border: #1a1a1a;
 }
 
 /* =========================================================
@@ -132,24 +134,33 @@ section {
 }
 
 /* =========================================================
+   GRID
+========================================================= */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* =========================================================
    CARDS PRO
 ========================================================= */
 .card {
-    background: #0d0d0d;
+    background: var(--card-bg);
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #1a1a1a;
+    border: 1px solid var(--border);
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .card:hover {
     border-color: var(--accent);
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
 
 /* =========================================================
@@ -163,7 +174,7 @@ section {
 }
 
 /* =========================================================
-   CONTENEDOR DE TEXTO (PRO)
+   CONTENIDO (SCROLL + FADE PRO)
 ========================================================= */
 .card-content {
     position: relative;
@@ -171,14 +182,13 @@ section {
     overflow: hidden;
 }
 
-/* scroll interno */
 .card-content p {
     max-height: 120px;
     overflow-y: auto;
     padding-right: 6px;
 }
 
-/* scrollbar minimalista */
+/* Scroll elegante */
 .card-content p::-webkit-scrollbar {
     width: 4px;
 }
@@ -192,7 +202,7 @@ section {
     background: transparent;
 }
 
-/* fade inferior PRO */
+/* Fade inferior */
 .card-content::after {
     content: "";
     position: absolute;
@@ -209,23 +219,48 @@ section {
 }
 
 /* =========================================================
-   AÑO (FOOTER DEL CARD)
+   FOOTER CARD (AÑO + TECNOLOGÍAS)
 ========================================================= */
-.card span {
+.card-footer {
     margin-top: auto;
-    font-size: 0.85rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 10px;
+}
+
+/* Año */
+.year {
+    font-size: 0.8rem;
     color: var(--accent);
     font-weight: 600;
     opacity: 0.8;
 }
 
-/* =========================================================
-   GRID
-========================================================= */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+/* Tecnologías */
+.tech {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* ICONOS SVG */
+.tech img {
+    width: 16px;
+    height: 16px;
+
+    opacity: 0.7;
+    filter: grayscale(100%) brightness(1.3);
+    transition: all 0.3s ease;
+}
+
+/* Hover iconos */
+.tech img:hover {
+    opacity: 1;
+    filter: none;
+    transform: scale(1.15);
 }
 
 /* =========================================================
